@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>The Button</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #4285F4;
+        color: white;
+        font-size: 24px;
+        border-radius: 30px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+    }
+
+	button a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    button:hover {
+        background-color: #3367D6;
+    }
+
+    .buttonClicked {
+        transform: scale(0.95);
+    }
+
+
+    </style>
+    <div class="container">
+		<button id="theButton"><a href="https://drive.google.com/drive/folders/16uwHTbANJEtbiKhVamSpX-7rYPk2dHq6?usp=sharing">The Button</a></button>
+	</div>
+	<script>
+      const button = document.getElementById("theButton");
+
+      button.addEventListener("click", function() {
+          button.classList.add("buttonClicked");
+          setTimeout(function() {
+              button.classList.remove("buttonClicked");
+          }, 100);
+      });
+
+    </script>
+</body>
+</html>
