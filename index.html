@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>MSB Trail Crew Stuff</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>MSB Trail Crew Stuff</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 </head>
 <body>
     <style>
-
     h1 {
         text-align: center;
         font-size: 9vw;
         padding-top: 10vh;
         padding-bottom: 10vh;
     }
+
     .container {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
         height: 100%;
     }
 
@@ -43,27 +44,37 @@
         background-color: #3367D6;
     }
 
-    .buttonClicked {
-        transform: scale(0.95);
+    #qr-code-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2em;
+        visibility: visible;
     }
 
+    canvas {
+        width: 40vw;
+        height: 40vw;
+    }
 
     </style>
+
     <h1>MSB Trail Crew Stuff</h1>
     <div class="container">
-		<button id="theButton"><a href="https://drive.google.com/drive/folders/16uwHTbANJEtbiKhVamSpX-7rYPk2dHq6?usp=sharing">The Button</a></button>
-	</div>
-	<script>
-      const button = document.getElementById("theButton");
+        <button id="theButton"><a href="https://drive.google.com/drive/folders/16uwHTbANJEtbiKhVamSpX-7rYPk2dHq6?usp=sharing">The Button</a></button>
+        <div id="qr-code-container">
+            <canvas id="qr-code"></canvas>
+        </div>
+    </div>
 
-      button.addEventListener("click", function() {
-          button.classList.add("buttonClicked");
-          setTimeout(function() {
-              button.classList.remove("buttonClicked");
-          }, 100);
-      });
-
+    <script type="text/javascript">
+        var link = document.querySelector("#theButton a");
+        var linkUrl = link.href;
+        var qr = new QRious({
+            element: document.getElementById('qr-code'),
+            value: linkUrl,
+            size: 400
+        });
     </script>
+
 </body>
 </html>
-
